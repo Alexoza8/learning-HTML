@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    font-family: "Yarndings 12", system-ui;
+   
+}
+
+body{
+    background-color: #f8fafc;
+}
+
+section{
+    background-color: #FFFFFF;
+    margin: 32px;
+}
+
+h1{
+    font-size: 32px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+h3{
+    font-size: 20px;
+}
