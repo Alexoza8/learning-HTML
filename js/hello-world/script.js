@@ -1,0 +1,1 @@
+console.log("Mensahe desde un fichero externo")
