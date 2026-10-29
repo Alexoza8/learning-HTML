@@ -1,450 +1,219 @@
 
-/* RESETEO Y FUENTE */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
-}
-
 body {
-    background-color: #e0e0e0;
-    display: flex;
-    justify-content: center;
-    padding: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
 }
 
-/* CONTENEDOR PRINCIPAL DEL BOLETO */
+
 .boleto {
-    background-color: #fdfdfd;
-    width: 1020px;
-    padding: 18px 22px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    width: 790px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
     border: 1px solid #ccc;
 }
 
-/* =========================================
-   1. CABECERA
-   ========================================= */
+
 .cabecera {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.logo-izq, .logo-der {
-    width: 165px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.logo-izq img, .logo-der img {
-    max-width: 100%;
-    height: auto;
-}
-
-.cabecera-centro {
-    flex: 1;
-    margin: 0 18px;
-}
-
-.franja-azul {
-    background-color: #5585b5;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 55px;
-    padding: 4px 15px;
-    margin-bottom: 4px;
-}
-
-.texto-sencillo {
-    font-size: 20px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.numero-261 {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.texto-instrucciones {
-    font-size: 10.5px;
-    color: #1d4d7a;
-    line-height: 1.25;
     margin-bottom: 5px;
 }
 
-.caja-jornada {
-    border: 1.5px solid #5585b5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2px 10px;
-    color: #1d4d7a;
-    font-size: 15px;
+.info-central {
+    width: 65%;
 }
 
-.liga-texto {
+.barra-azul {
+    background-color: #5b9bd5;
+    color: white;
     font-weight: bold;
-    font-size: 16px;
-}
-
-/* =========================================
-   2. CUERPO PRINCIPAL
-   ========================================= */
-.cuerpo-principal {
-    display: flex;
-    align-items: stretch;
-    gap: 14px;
-}
-
-/* TABLA IZQUIERDA (PARTIDOS + PRONÓSTICOS) */
-.tabla-principal {
-    border-collapse: collapse;
-    flex: 1;
-}
-
-/* TÍTULO PRONÓSTICOS */
-.titulo-pronosticos {
-    border: 1.5px solid #e0534c;
-    color: #e0534c;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    padding: 3px 0;
-    letter-spacing: 5px;
-}
-
-.linea-roja-arriba {
-    border-bottom: 1.5px solid #e0534c;
-}
-
-/* COLUMNA DE MARCAS ÓPTICAS NEGRAS */
-.col-marca {
-    width: 18px;
-    vertical-align: middle;
-    padding-right: 6px;
-}
-
-.marca-optica {
-    width: 9px;
-    height: 20px;
-    background-color: #3b3838;
-}
-
-/* NOMBRES DE EQUIPOS CON LÍNEA DE PUNTOS */
-.equipo {
-    width: 195px;
-    font-size: 12.5px;
-    font-weight: bold;
-    color: #1d5a8a;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-    padding-left: 2px;
-}
-
-.equipo span {
-    background-color: #fdfdfd;
-    padding-right: 4px;
-    position: relative;
-    z-index: 2;
-}
-
-/* Puntos suspensivos automáticos hasta el número */
-.equipo::after {
-    content: "................................................";
-    position: absolute;
-    left: 0;
-    color: #1d5a8a;
-    z-index: 1;
-    letter-spacing: 2px;
-}
-
-.num {
-    width: 24px;
-    text-align: right;
-    padding-right: 6px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #1d5a8a;
-    border-right: 1.5px solid #e0534c;
-}
-
-/* CELDAS DE BLOQUES IMPARES (1, 3, 5, 7) -> Fondo rosado/rojo */
-.b-impar {
-    background-color: #ea6b66;
-    padding: 2px;
-    text-align: center;
-}
-
-.b-impar span {
-    display: inline-block;
-    width: 16px;
-    height: 18px;
-    line-height: 17px;
-    background-color: #ffffff;
-    border: 1px solid #e0534c;
-    color: #e0534c;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-/* CELDAS DE BLOQUES PARES (2, 4, 6, 8) -> Fondo blanco con cruz roja */
-.b-par {
-    background-color: #ffffff;
-    padding: 2px;
-    text-align: center;
-}
-
-.b-par span {
-    display: inline-block;
-    width: 16px;
-    height: 18px;
-    line-height: 17px;
-    background-color: #ffffff;
-    border: 1px solid #e0534c;
-    color: #e0534c;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-/* Brazo vertical de la cruz roja en la columna X de bloques pares */
-.b-par.cruz-v {
-    background: linear-gradient(to right, transparent 38%, #ea6b66 38%, #ea6b66 62%, transparent 62%);
-}
-
-/* Brazo horizontal de la cruz roja en las filas 2, 6, 10 y 13 */
-tr.fila-cruz-h td.b-par {
-    background: linear-gradient(to bottom, transparent 38%, #ea6b66 38%, #ea6b66 62%, transparent 62%);
-}
-
-/* Unión central de la cruz (vertical + horizontal) */
-tr.fila-cruz-h td.b-par.cruz-v {
-    background:
-        linear-gradient(to right, transparent 38%, #ea6b66 38%, #ea6b66 62%, transparent 62%),
-        linear-gradient(to bottom, transparent 38%, #ea6b66 38%, #ea6b66 62%, transparent 62%);
-}
-
-/* LÍNEA ROJA DIVISORIA ENTRE GRUPOS DE PARTIDOS (4, 8, 11, 14) */
-tr.separador-grupo td.equipo,
-tr.separador-grupo td.num,
-tr.separador-grupo td.b-impar,
-tr.separador-grupo td.b-par {
-    border-bottom: 2px solid #e0534c;
-}
-
-/* Borde derecho del bloque 8 */
-.tabla-principal tbody tr td:last-child {
-    border-right: 1.5px solid #e0534c;
-}
-
-/* =========================================
-   3. FILA PLENO AL 15 Y BARRA DE BLOQUES
-   ========================================= */
-.fila-pleno td {
-    padding-top: 5px;
-    padding-bottom: 4px;
-}
-
-.contenedor-bien-mal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 18px;
-    padding-right: 6px;
-}
-
-.etiqueta-bm {
-    font-size: 9.5px;
-    color: #1d5a8a;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-}
-
-.casilla-bm {
-    display: inline-block;
-    width: 14px;
-    height: 17px;
-    line-height: 15px;
-    text-align: center;
-    border: 1px solid #1d5a8a;
-    color: #1d5a8a;
-    font-size: 12px;
-}
-
-.casilla-bm.tachada {
-    background-color: #d8e6f3;
-}
-
-.txt-pleno15 {
-    color: #e0534c;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.contenedor-pleno15 {
+    font-size: 20px;
+    padding: 5px 30px;
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 
-.equipo-15 {
+.instrucciones {
+    font-size: 9px;
+    color: #333;
+    margin: 6px 0;
+}
+
+.caja-jornada {
+    border: 2px solid #5b9bd5;
+    color: #2e75b6;
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11px;
+}
+
+.letrilla {
+    font-size: 19px;
+}
+
+.liga {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.cuerpo-quiniela {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.titulo-pronosticos, .titulo-combinaciones {
+    border: 1px solid #e06666;
+    color: #e06666;
+    font-size: 12px;
+    padding: 4px;
+    text-align: center ;
+}
+
+.titulo-pronosticos{
+    letter-spacing: 0.8em;
+}
+
+/* Estilos de los partidos y números */
+.partido {
+    color: #2e75b6;
+    font-size: 12px;
+    font-weight: bold;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+.num-partido {
+    color: #2e75b6;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 8px;
+}
+
+/* Líneas rojas horizontales cada ciertos partidos */
+.linea-separadora td {
+    border-bottom: 2px solid #e06666;
+}
+
+/* Bloques de columnas rojas y blancas alternas */
+.b-rojo {
+    background-color: #ea7070;
+    padding: 2px 1px;
+}
+
+.b-blanco {
+    background-color: #ffffff;
+    padding: 2px 1px;
+}
+
+/* Casillas individuales (1, X, 2) */
+.casilla {
+    display: inline-block;
+    width: 14px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 11px;
+    background-color: white;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+
+.casilla:hover {
+    background-color: #2e75b6;
+    color: white;
+    cursor: pointer;
+}
+
+/* Tabla de combinaciones (Derecha) */
+.tabla-combinaciones {
+   border-left: 2px solid #e06666;
+    border-right: 2px solid #e06666;
+    border-top: 2px solid #e06666;
+    border-bottom: 2px solid #e06666;
+}
+
+.tabla-combinaciones td {
+    padding: 2px 6px;
+    text-align: center;
+}
+
+.texto-flecha {
+    color: #e06666;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* 3. PIE DEL BOLETO (Pleno al 15 y Bloques) */
+.pie-boleto {
+    margin-top: 10px;
+}
+
+.fila-pleno15 {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-between;
+    width: 87%;
+    margin-bottom: 8px;
 }
 
-.nombre-15, .puntos-15 {
-    color: #1d5a8a;
+.ejemplo-marcado {
+    color: #2e75b6;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.casilla-ejemplo {
+    display: inline-block;
+    border: 1px solid #2e75b6;
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+
+.titulo-pleno {
+    color: #e06666;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Barra inferior de bloques */
+.fila-bloques {
+    display: flex;
+    align-items: center;
+    width: 87%;
+}
+
+.etiqueta-bloques {
+    width: 245px;
+    text-align: right;
+    padding-right: 15px;
+    color: #2e75b6;
     font-weight: bold;
     font-size: 13px;
 }
 
-.cajas-goles {
+.numeros-bloques {
     display: flex;
-    gap: 3px;
-    background-color: #f7b0ab;
-    padding: 2px 4px;
-    border: 1px solid #e0534c;
-}
-
-.cajas-goles span {
-    width: 16px;
-    height: 18px;
-    line-height: 17px;
-    text-align: center;
-    background-color: #ffffff;
-    border: 1px solid #e0534c;
-    color: #e0534c;
-    font-size: 11px;
+    flex-grow: 1;
+    background-color: #ea7070;
+    color: white;
     font-weight: bold;
-}
-
-/* FILA BLOQUES 1 A 8 */
-.texto-bloques {
-    text-align: right;
-    padding-right: 12px;
-    color: #1d5a8a;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.num-bloque {
-    background-color: #ea6b66;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 14px;
-    text-align: center;
-    border-left: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
-    padding: 1px 0;
-}
-
-.marca-esquina {
-    width: 16px;
-    height: 16px;
-    background-color: #3b3838;
-}
-
-/* =========================================
-   4. COLUMNA DERECHA: COMBINACIONES
-   ========================================= */
-.columna-combinaciones {
-    width: 92px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.titulo-comb {
-    border: 1.5px solid #e0534c;
-    color: #e0534c;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
     padding: 3px 0;
 }
 
-/* Parte de arriba (Filas 1 a 10) con borde completo */
-.grid-comb-doble {
-    border-left: 1.5px solid #e0534c;
-    border-right: 1.5px solid #e0534c;
-    border-bottom: 1.5px solid #e0534c;
-    padding: 3px 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 5.5px;
-}
-
-.fila-c {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.fila-c span, .fila-c-simple span {
-    width: 17px;
-    height: 18px;
-    line-height: 17px;
+.numeros-bloques span {
+    width: 12.5%;
     text-align: center;
-    border: 1px solid #e0534c;
-    color: #e0534c;
-    font-size: 11px;
-    font-weight: bold;
-    background-color: #ffffff;
-}
-
-.ind-triples {
-    color: #e0534c;
-    font-size: 8.5px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1;
-}
-
-/* Parte de abajo (Filas 11 a 14): Solo mitad izquierda con borde */
-.zona-inferior-comb {
-    display: flex;
-}
-
-.columna-11-14 {
-    width: 50%;
-    border-left: 1.5px solid #e0534c;
-    border-right: 1.5px solid #e0534c;
-    border-bottom: 1.5px solid #e0534c;
-    padding: 4px 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 5.5px;
-}
-
-/* Pie de combinaciones (DOBLES + cuadrado negro derecho) */
-.pie-combinaciones {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-top: 2px;
-}
-
-.ind-dobles {
-    width: 50%;
-    text-align: center;
-    color: #e0534c;
-    font-size: 8.5px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.marca-esquina-der {
-    width: 16px;
-    height: 16px;
-    background-color: #3b3838;
 }
